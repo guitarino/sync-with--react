@@ -2,6 +2,7 @@ import { createElement } from 'react';
 
 var toLower = (value) => String(value).toLowerCase();
 
+// Gets a style object from an element.style
 function styleToObject(style) {
   var obj = {};
   for (var i=0; i<style.length; i++) {
@@ -11,6 +12,7 @@ function styleToObject(style) {
   return obj;
 }
 
+// Gets an attribute object from an HTML element
 function getAttrObject(element) {
   var attrs = element.attributes;
   var attrObject = {};
@@ -34,6 +36,7 @@ function getAttrObject(element) {
   return attrObject;
 }
 
+// Gets an array of children from element.childNodes
 function getChildren(children) {
   var childArray = [];
   for (var i=0; i<children.length; i++) {
@@ -43,6 +46,10 @@ function getChildren(children) {
   return childArray;
 }
 
+/**
+ * Creates a virtual dom node from an actual dom node
+ * @param {Node} node - DOM node to create a virtual node from
+ */
 export default function createVNode(node) {
   if (node instanceof Node) {
     if (node.nodeType === Node.ELEMENT_NODE) {

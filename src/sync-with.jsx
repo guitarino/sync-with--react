@@ -26,6 +26,10 @@ export default class Sync extends Component {
     );
   }
 
+  /**
+   * Synchronizes the Sync component with provided reference
+   * @param {(Component|Node)} ref - the reference for synchronization
+   */
   syncWith(ref) {
     if (this.mutationObserver) {
       this.mutationObserver.disconnect();
@@ -57,6 +61,13 @@ export default class Sync extends Component {
   }
 }
 
+/**
+ * A utility to simplify creating reference callbacks.
+ * You need to have references to both your reference component and
+ * a Sync component. Whenever Sync component is available,
+ * it will get synchronized with your reference component.
+ * @returns {Object} - an object {ref, syncRef} containing new connected ref callbacks 
+ */
 Sync.createRefCallbacks = function() {
   var
     ref,

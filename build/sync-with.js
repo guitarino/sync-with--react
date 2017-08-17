@@ -51,6 +51,12 @@ var Sync = function (_Component) {
     value: function render() {
       return this.syncRef ? (0, _createVNode2.default)(findRefNode(this.syncRef)) : null;
     }
+
+    /**
+     * Synchronizes the Sync component with provided reference
+     * @param {(Component|Node)} ref - the reference for synchronization
+     */
+
   }, {
     key: 'syncWith',
     value: function syncWith(ref) {
@@ -87,9 +93,16 @@ var Sync = function (_Component) {
   return Sync;
 }(_react.Component);
 
+/**
+ * A utility to simplify creating reference callbacks.
+ * You need to have references to both your reference component and
+ * a Sync component. Whenever Sync component is available,
+ * it will get synchronized with your reference component.
+ * @returns {Object} - an object {ref, syncRef} containing new connected ref callbacks 
+ */
+
+
 exports.default = Sync;
-
-
 Sync.createRefCallbacks = function () {
   var _ref,
       _syncRef,
