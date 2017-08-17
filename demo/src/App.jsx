@@ -14,7 +14,7 @@ export default class App extends React.Component {
           this.state.thirdMounted ?
 
             <div ref={this.thirdRefs.ref} style={{color: 'red'}}>
-              <AnotherComponent someProp={"I'm third"} />
+              Test 3. <AnotherComponent someProp={"I'm third"} />
             </div> :
             
             null
