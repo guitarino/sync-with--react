@@ -22,7 +22,7 @@ var mutationConfig = {
 export default class Sync extends Component {
   render() {
     return (
-      this.syncRef ? createVNode(findRefNode(this.syncRef)) : null
+      this.syncRef ? createVNode(this.syncRef) : null
     );
   }
 
@@ -35,11 +35,11 @@ export default class Sync extends Component {
       this.mutationObserver.disconnect();
     }
     if (ref) {
-      let node = findRefNode(ref);
-      if (node) {
+      ref = findRefNode(ref);
+      if (ref) {
         this.mutationObserver = new MutationObserver(this.handleRefUpdate);
         this.mutationObserver.observe(
-          node,
+          ref,
           mutationConfig
         );
       }

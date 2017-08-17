@@ -49,7 +49,7 @@ var Sync = function (_Component) {
   _createClass(Sync, [{
     key: 'render',
     value: function render() {
-      return this.syncRef ? (0, _createVNode2.default)(findRefNode(this.syncRef)) : null;
+      return this.syncRef ? (0, _createVNode2.default)(this.syncRef) : null;
     }
 
     /**
@@ -64,10 +64,10 @@ var Sync = function (_Component) {
         this.mutationObserver.disconnect();
       }
       if (ref) {
-        var node = findRefNode(ref);
-        if (node) {
+        ref = findRefNode(ref);
+        if (ref) {
           this.mutationObserver = new MutationObserver(this.handleRefUpdate);
-          this.mutationObserver.observe(node, mutationConfig);
+          this.mutationObserver.observe(ref, mutationConfig);
         }
       }
       this.syncRef = ref;
